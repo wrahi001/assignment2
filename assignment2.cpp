@@ -21,7 +21,6 @@ int main()
   bool ex_result;
   char **analyzed = new char*[256];
   char **analyzed2 = new char*[256];
-  bool comment_flag = false;
 
   					
   while(true)
@@ -34,7 +33,6 @@ int main()
 	    exit(1);
     }
     command_pointer->analyze(analyzed);                    
-    if(!comment)
     for (int i = 0; analyzed[i] != NULL; i++)
     {
       if (*analyzed[i] == ';')
@@ -68,8 +66,7 @@ int main()
       }
       else if (*analyzed[i] == '#' )
       {
- 		comment_flag = true;
-		cout << analyzed[i+1];       
+		break;		       
       }
       else
       {
